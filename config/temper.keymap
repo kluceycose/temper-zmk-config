@@ -86,43 +86,43 @@
 
                 // Right Side Combos
                 // Modifier Combos
-                combo_left_cmd {
+                combo_right_cmd {
                         timeout-ms = <50>;
                         key-positions = <26 27>;
                         bindings = <&kp RCMD>;
                         layers = <0>;
                 };
-                combo_left_alt {
+                combo_right_alt {
                         timeout-ms = <50>;
                         key-positions = <27 28>;
                         bindings = <&kp RALT>;
                         layers = <0>;
                 };
-                combo_left_ctrl {
+                combo_right_ctrl {
                         timeout-ms = <50>;
                         key-positions = <28 29>;
                         bindings = <&kp RCTRL>;
                         layers = <0>;
                 };
-                combo_left_cmd_alt {
+                combo_right_cmd_alt {
                         timeout-ms = <50>;
                         key-positions = <26 27 28>;
                         bindings = <&kp RG(RALT)>;
                         layers = <0>;
                 };
-                combo_left_cmd_ctrl {
+                combo_right_cmd_ctrl {
                         timeout-ms = <50>;
                         key-positions = <26 27 29>;
                         bindings = <&kp RG(RCTRL)>;
                         layers = <0>;
                 };
-                combo_left_alt_ctrl {
+                combo_right_alt_ctrl {
                         timeout-ms = <50>;
                         key-positions = <27 28 29>;
                         bindings = <&kp RALT(RCTRL)>;
                         layers = <0>;
                 };
-                combo_left_cmd_alt_ctrl {
+                combo_right_cmd_alt_ctrl {
                         timeout-ms = <50>;
                         key-positions = <26 27 28 29>;
                         bindings = <&kp RG(RA(RCTRL))>;
