@@ -236,7 +236,7 @@
                 num_layer {
                         bindings = <
 // ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮   ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮
-        ______     &opn_brckts   &cls_brckts      ______        &arrw         &mt BLSH PIPE    &kp N7         &kp N8        &kp N9      &kp GRAVE   
+        ______     &opn_brckts   &cls_brckts      ______        &arrw         &mt BSLH PIPE    &kp N7         &kp N8        &kp N9      &kp GRAVE   
 // ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤   ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
 //                         Sticky Modifiers
       &sk LCTRL      &sk LALT      &sk LCMD     &sk LSHFT       ______        &mt MINUS PLUS   &kp N4         &kp N5        &kp N6      &kp EQUAL
