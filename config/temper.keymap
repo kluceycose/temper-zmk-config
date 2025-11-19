@@ -15,7 +15,7 @@
 #define NAV 3
 #define FUN 4
 
-#define AS(keycode) &as LS(keycode) keycode     // Autoshift Macro
+#define ______ &trans                     // Transparent Key
 
 &sk {
         release-after-ms = <2000>;
@@ -196,14 +196,6 @@
                         tapping-term-ms = <200>;
                         bindings = <&mt RBRC RPAR>,  <&mt RBKT>;
                 };
-
-                as: auto_shift {
-                        compatible = "zmk,behavior-hold-tap";
-                        #binding-cells = <2>;
-                        tapping_term_ms = <200>;
-                        quick_tap_ms = <0>;
-                        bindings = <&kp>, <&kp>;
-                };
         };
 
         keymap {
@@ -228,7 +220,7 @@
                         bindings = <
 // ╭─────────────────┬────────────────┬─────────────┬─────────────┬─────────────╮   ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮
 // | Cycle Apps      | Prev Window    | Next Window |    &kp P    |   
-        &kp TAB        &kp LS(GRAVE)      &kp GRAVE      &trans        ______            ______       ______         ______        ______        ______    
+     &mt LS(TAB) TAB    &kp LS(GRAVE)      &kp GRAVE      ______        ______            ______       ______         ______        ______        ______    
 // ├─────────────────┼────────────────┼─────────────┼─────────────┼─────────────┤   ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
 // | Address Bar     | Reopen Tab     | Prev Tab    | Next Tab    |                                            Sticky Modifiers
         &kp L             &kp R         &kp LS(LBKT)   &kp LBKT       &kp G             ______      &sk RSHFT     &sk RCMD       &sk RALT      &sk RCTRL
