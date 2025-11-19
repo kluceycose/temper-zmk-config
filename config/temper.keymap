@@ -26,7 +26,7 @@
                         if-layers = <NUM NAV>;
                         then-layer = <FUN>;
                 }
-        }
+        };
 
         combos {
                 compatible = "zkm,combos";
@@ -136,7 +136,7 @@
                         bindings = <&kp SEMICOLON>;
                         layers = <0>;
                 }
-        }
+        };
 
         macros {
                 // Layer-Mod: Enables a layer with a modifier held
@@ -178,7 +178,7 @@
                                 , <&macro_tap GREATER>
                                 ;
                 };
-        }
+        };
 
         behaviors {
                 opn_brckts: opn_brckts {
@@ -194,7 +194,7 @@
                         tapping-term-ms = <200>;
                         bindings = <&mt RBRC RPAR>,  <&mt RBKT>;
                 };
-        }
+        };
 
         keymap {
                 compatible = "zmk,keymap";
