@@ -175,7 +175,7 @@
                         #binding-cells = <0>;
                         bindings
                                 = <&macro_tap EQUAL>
-                                , <&macro_tap GREATER>
+                                , <&macro_tap GREATER_THAN>
                                 ;
                 };
         };
