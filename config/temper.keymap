@@ -25,7 +25,7 @@
                 tri_layer {
                         if-layers = <NUM NAV>;
                         then-layer = <FUN>;
-                }:
+                };
         };
 
         combos {
