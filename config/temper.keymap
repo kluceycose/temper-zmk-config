@@ -80,7 +80,7 @@
                 combo_left_cmd_alt_ctrl {
                         timeout-ms = <50>;
                         key-positions = <20 21 22 23>;
-                        bindings = <&kp LG(LALT(LCTRL))>;
+                        bindings = <&kp LG(LA(LCTRL))>;
                         layers = <0>;
                 };
 
@@ -125,7 +125,7 @@
                 combo_left_cmd_alt_ctrl {
                         timeout-ms = <50>;
                         key-positions = <26 27 28 29>;
-                        bindings = <&kp RG(RALT(RCTRL))>;
+                        bindings = <&kp RG(RA(RCTRL))>;
                         layers = <0>;
                 };
 
@@ -218,10 +218,10 @@
                         bindings = <
 // ╭─────────────────┬────────────────┬─────────────┬─────────────┬─────────────╮   ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮
 // | Cycle Apps      | Prev Window    | Next Window |    &kp P    |   
-   &mt LSHFT(TAB) TAB &kp LSHFT(GRAVE) &kp GRAVE        &trans        ______            ______       ______         ______        ______        ______    
+   &mt LS(TAB) TAB    &kp LS(GRAVE)      &kp GRAVE      &trans        ______            ______       ______         ______        ______        ______    
 // ├─────────────────┼────────────────┼─────────────┼─────────────┼─────────────┤   ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
 // | Address Bar     | Reopen Tab     | Prev Tab    | Next Tab    |                                            Sticky Modifiers
-        &kp L             &kp R       &kp LSHFT(LBKT)  &kp LBKT        &kp G             ______      &sk RSHFT     &sk RCMD       &sk RALT      &sk RCTRL
+        &kp L             &kp R         &kp LS(LBKT)   &kp LBKT       &kp G             ______      &sk RSHFT     &sk RCMD       &sk RALT      &sk RCTRL
 // ├─────────────────┼────────────────┼─────────────┼─────────────┼─────────────┤   ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
 // |    Undo         |    Cut         |    Copy     |   Delete    |    Paste    |
         &kp Z             &kp X         &kp C          &kp DEL        &kp V             ______        ______        ______        ______        ______
@@ -240,7 +240,7 @@
       &sk LCTRL      &sk LALT      &sk LCMD     &sk LSHFT       ______        &mt MINUS PLUS   &kp N4         &kp N5        &kp N6      &kp EQUAL
 // ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤   ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
 //                                             Del Line
-       ______     &sv_exit_nano     ______   &kp LCMD(LSHFT(K)) ______        &mt FSLH STAR    &kp N1         &kp N2        &kp N3      &kp EQUAL
+       ______     &sv_exit_nano     ______    &kp LG(LS(K))     ______        &mt FSLH STAR    &kp N1         &kp N2        &kp N3      &kp EQUAL
 // ╰─────────────┴─────────────┼─────────────┼─────────────┼─────────────┤   ├─────────────┼─────────────┼─────────────┼─────────────┴─────────────╯
                                     ______        ______        ______           ______       &kp PERIOD    &kp N0
 //                             ╰─────────────┴─────────────┴─────────────╯   ╰─────────────┴─────────────┴─────────────╯
