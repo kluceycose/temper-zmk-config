@@ -207,14 +207,14 @@
                         compatible = "zmk,behavior-tap-dance";
                         #binding-cells = <0>;
                         tapping-term-ms = <200>;
-                        bindings = <&mt LBRC LPAR>,  <&mt LBKT &open_parens>;
+                        bindings = <&mt LBRC LPAR>,  <&mt LBKT opn_parens>;
                 };
 
                 cls_brckts: cls_brckts {
                         compatible = "zmk,behavior-tap-dance";
                         #binding-cells = <0>;
                         tapping-term-ms = <200>;
-                        bindings = <&mt RBRC RPAR>,  <&mt RBKT &cls_parens>;
+                        bindings = <&mt RBRC RPAR>,  <&mt RBKT cls_parens>;
                 };
         };
 
