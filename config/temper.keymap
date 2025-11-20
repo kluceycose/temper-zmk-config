@@ -164,10 +164,12 @@
                 sv_exit_nano: sv_exit_nano {
                         compatible = "zmk,behavior-macro";
                         #binding-cells = <0>;
+                        wait-ms = <40>;
+                        tap-ms = <40>;
                         bindings
-                                = <&macro_tap LCTRL(O)>
-                                , <&macro_tap RET>
-                                , <&macro_tap LCTRL(X)>
+                                = <&kp LCTRL(O)>
+                                , <&kp RET>
+                                , <&kp LCTRL(X)>
                                 ;
                 };
 
@@ -175,30 +177,27 @@
                 arrw: arrw {
                         compatible = "zmk,behavior-macro";
                         #binding-cells = <0>;
-                        bindings
-                                = <&macro_tap EQUAL>
-                                , <&macro_tap GREATER_THAN>
-                                ;
+                        wait-ms = <40>;
+                        tap-ms = <40>;
+                        bindings = <&kp EQUAL &kp GREATER_THAN>;
                 };
 
                 // Double open parens, used with tap dance
                 opn_parens: opn_parens {
                         compatible = "zmk,behavior-macro";
                         #binding-cells = <0>;
-                        bindings
-                                = <&macro_tap &kp LPAR>
-                                , <&macro_tap &kp LPAR>
-                                ;
+                        wait-ms = <40>;
+                        tap-ms = <40>;
+                        bindings = <&kp LPAR &kp LPAR>;
                 };
 
                 // Double close parens, used with tap dance
                 cls_parens: cls_parens {
                         compatible = "zmk,behavior-macro";
                         #binding-cells = <0>;
-                        bindings
-                                = <&macro_tap &kp RPAR>
-                                , <&macro_tap &kp RPAR>
-                                ;
+                        wait-ms = <40>;
+                        tap-ms = <40>;
+                        bindings = <&kp RPAR &kp RPAR>;
                 };
         };
 
