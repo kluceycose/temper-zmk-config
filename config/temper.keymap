@@ -180,6 +180,26 @@
                                 , <&macro_tap GREATER_THAN>
                                 ;
                 };
+
+                // Double open parens, used with tap dance
+                opn_parens: opn_parens {
+                        compatible = "zmk,behavior-macro";
+                        #binding-cells = <0>;
+                        bindings
+                                = <&macro_tap LPAR>
+                                , <&macro_tap LPAR>
+                                ;
+                };
+
+                // Double close parens, used with tap dance
+                cls_parens: cls_parens {
+                        compatible = "zmk,behavior-macro";
+                        #binding-cells = <0>;
+                        bindings
+                                = <&macro_tap RPAR>
+                                , <&macro_tap RPAR>
+                                ;
+                };
         };
 
         behaviors {
@@ -187,14 +207,14 @@
                         compatible = "zmk,behavior-tap-dance";
                         #binding-cells = <0>;
                         tapping-term-ms = <200>;
-                        bindings = <&mt LBRC LPAR>,  <&mt LBKT>;
+                        bindings = <&mt LBRC LPAR>,  <&mt LBKT open_parens>;
                 };
 
                 cls_brckts: cls_brckts {
                         compatible = "zmk,behavior-tap-dance";
                         #binding-cells = <0>;
                         tapping-term-ms = <200>;
-                        bindings = <&mt RBRC RPAR>,  <&mt RBKT>;
+                        bindings = <&mt RBRC RPAR>,  <&mt RBKT cls_parens>;
                 };
         };
 
