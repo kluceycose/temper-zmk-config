@@ -202,18 +202,39 @@
         };
 
         behaviors {
+                opn_br_ht: open_bracket_hold_tap {
+                        compatible = "zmk,behavior-hold-tap";
+                        #binding-cells = <2>;
+                        flavor = "tap-preferred";          // or balanced/hold-preferred
+                        tapping-term-ms = <200>;
+                        quick-tap-ms = <0>;
+                        bindings = <&kp>, <&opn_parens>;
+                        // hold branch = &kp (expects 1 param: the hold keycode)
+                        // tap branch  = &opn_parens (expects 0 params, will get a dummy 0)
+                };
+                cls_br_ht: close_bracket_hold_tap {
+                        compatible = "zmk,behavior-hold-tap";
+                        #binding-cells = <2>;
+                        flavor = "tap-preferred";          // or balanced/hold-preferred
+                        tapping-term-ms = <200>;
+                        quick-tap-ms = <0>;
+                        bindings = <&kp>, <&cls_parens>;
+                        // hold branch = &kp (expects 1 param: the hold keycode)
+                        // tap branch  = &opn_parens (expects 0 params, will get a dummy 0)
+                };
+
                 opn_brckts: opn_brckts {
                         compatible = "zmk,behavior-tap-dance";
                         #binding-cells = <0>;
                         tapping-term-ms = <200>;
-                        bindings = <&mt LBRC LPAR>,  <&mt LBKT opn_parens>;
+                        bindings = <&mt LBRC LPAR>,  <&opn_br_ht LBKT 0>;
                 };
 
                 cls_brckts: cls_brckts {
                         compatible = "zmk,behavior-tap-dance";
                         #binding-cells = <0>;
                         tapping-term-ms = <200>;
-                        bindings = <&mt RBRC RPAR>,  <&mt RBKT cls_parens>;
+                        bindings = <&mt RBRC RPAR>,  <&cls_br_ht LBKT 0>;
                 };
         };
 
