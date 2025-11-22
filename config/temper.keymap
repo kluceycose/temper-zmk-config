@@ -15,8 +15,6 @@
 #define NAV 3
 #define FUN 4
 
-#define ______ &trans                     // Transparent Key
-
 &sk {
         release-after-ms = <2000>;
 };
@@ -177,15 +175,15 @@
                         bindings = <
 // ╭─────────────────┬────────────────┬─────────────┬─────────────┬─────────────╮   ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮
 // | Cycle Apps      | Prev Window    | Next Window |    &kp P    |   
-     &mt LS(TAB) TAB    &kp LS(GRAVE)      &kp GRAVE      ______        ______            ______       ______         ______        ______        ______    
+     &mt LS(TAB) TAB    &kp LS(GRAVE)      &kp GRAVE      &trans        &trans            &trans       &trans         &trans        &trans        &trans    
 // ├─────────────────┼────────────────┼─────────────┼─────────────┼─────────────┤   ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
 // | Address Bar     | Reopen Tab     | Prev Tab    | Next Tab    |                                            Sticky Modifiers
-        &kp L             &kp R         &kp LS(LBKT)   &kp LBKT       &kp G             ______      &sk RSHFT     &sk RCMD       &sk RALT      &sk RCTRL
+        &kp L             &kp R         &kp LS(LBKT)   &kp LBKT       &kp G             &trans      &sk RSHFT     &sk RCMD       &sk RALT      &sk RCTRL
 // ├─────────────────┼────────────────┼─────────────┼─────────────┼─────────────┤   ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
 // |    Undo         |    Cut         |    Copy     |   Delete    |    Paste    |
-        &kp Z             &kp X         &kp C          &kp DEL        &kp V             ______        ______        ______        ______        ______
+        &kp Z             &kp X         &kp C          &kp DEL        &kp V             &trans        &trans        &trans        &trans        &trans
 // ╰─────────────────┴────────────────┼─────────────┼─────────────┼─────────────┤   ├─────────────┼─────────────┼─────────────┼─────────────┴─────────────╯
-                                          ______        ______        ______            ______        ______       &mo NAV
+                                          &trans        &trans        &trans            &trans        &trans       &mo NAV
 //                                    ╰─────────────┴─────────────┴─────────────╯   ╰─────────────┴─────────────┴─────────────╯
                         >;
                 };
