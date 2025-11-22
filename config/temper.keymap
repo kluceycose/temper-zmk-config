@@ -162,6 +162,64 @@
                 <&macro_release>,
                 <&mo MACRO_PLACEHOLDER>;
         };
+
+        dbl_opn_paren: dbl_opn_paren {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&kp LEFT_PARENTHESIS &kp LEFT_PARENTHESIS>;
+            label = "DBL_OPN_PAREN";
+            wait-ms = <40>;
+            tap-ms = <40>;
+        };
+
+        dbl_cls_paren: dbl_cls_paren {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&kp LEFT_PARENTHESIS &kp LEFT_PARENTHESIS>;
+            label = "DBL_CLS_PAREN";
+            wait-ms = <40>;
+            tap-ms = <40>;
+        };
+    };
+
+    behaviors {
+        open_bckts: open_bckts {
+            compatible = "zmk,behavior-tap-dance";
+            label = "OPEN_BCKTS";
+            #binding-cells = <0>;
+            bindings =
+                <&mt LEFT_BRACE LEFT_PARENTHESIS>,
+                <&opn_dbl_tap LEFT_BRACKET 0>;
+
+            tapping-term-ms = <200>;
+        };
+
+        opn_dbl_tap: opn_dbl_tap {
+            compatible = "zmk,behavior-hold-tap";
+            label = "OPN_DBL_TAP";
+            bindings = <&kp>, <&open_bckts>;
+
+            #binding-cells = <2>;
+            tapping-term-ms = <200>;
+        };
+
+        cls_dbl_tap: cls_dbl_tap {
+            compatible = "zmk,behavior-hold-tap";
+            label = "CLS_DBL_TAP";
+            bindings = <&kp>, <&dbl_cls_paren>;
+
+            #binding-cells = <2>;
+            tapping-term-ms = <200>;
+        };
+
+        cls_bckts: cls_bckts {
+            compatible = "zmk,behavior-tap-dance";
+            label = "CLS_BCKTS";
+            #binding-cells = <0>;
+            bindings = <&mt RIGHT_BRACE RIGHT_PARENTHESIS>, <&dbl_cls_paren>;
+
+            tapping-term-ms = <200>;
+        };
     };
 
     keymap {
@@ -187,10 +245,10 @@
 
         SymNum {
             bindings = <
-  &trans  &trans  &trans  &trans  &trans    &trans  &trans  &trans  &trans  &trans
-  &trans  &trans  &trans  &trans  &trans    &trans  &trans  &trans  &trans  &trans
-  &trans  &trans  &trans  &trans  &trans    &trans  &trans  &trans  &trans  &trans
-                  &trans  &trans  &trans    &trans  &trans  &trans
+  &trans     &open_bckts  &trans    &trans     &trans    &trans  &kp N7  &kp N8  &kp N9  &trans
+  &kp LCTRL  &kp LALT     &kp LCMD  &kp LSHFT  &trans    &trans  &kp N4  &kp N5  &kp N6  &trans
+  &trans     &trans       &trans    &trans     &trans    &trans  &kp N1  &kp N2  &kp N3  &trans
+                          &trans    &trans     &trans    &trans  &trans  &trans
             >;
         };
 
@@ -217,7 +275,7 @@
         compatible = "zmk,conditional-layers";
 
         Fun {
-            if-layers = <2 3>;
+            if-layers = <3 1>;
             then-layer = <4>;
         };
     };
