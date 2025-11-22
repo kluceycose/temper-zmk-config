@@ -159,84 +159,9 @@
                                 , <&macro_release &mo MACRO_PLACEHOLDER>
                                 ;
                 };
-
-                // Save and exit Nano editor
-                sv_exit_nano: sv_exit_nano {
-                        compatible = "zmk,behavior-macro";
-                        #binding-cells = <0>;
-                        wait-ms = <40>;
-                        tap-ms = <40>;
-                        bindings
-                                = <&kp LCTRL(O)>
-                                , <&kp RET>
-                                , <&kp LCTRL(X)>
-                                ;
-                };
-
-                // Fat Arrow => 
-                arrw: arrw {
-                        compatible = "zmk,behavior-macro";
-                        #binding-cells = <0>;
-                        wait-ms = <40>;
-                        tap-ms = <40>;
-                        bindings = <&kp EQUAL &kp GREATER_THAN>;
-                };
-
-                // Double open parens, used with tap dance
-                opn_parens: opn_parens {
-                        compatible = "zmk,behavior-macro";
-                        #binding-cells = <0>;
-                        wait-ms = <40>;
-                        tap-ms = <40>;
-                        bindings = <&kp LPAR &kp LPAR>;
-                };
-
-                // Double close parens, used with tap dance
-                cls_parens: cls_parens {
-                        compatible = "zmk,behavior-macro";
-                        #binding-cells = <0>;
-                        wait-ms = <40>;
-                        tap-ms = <40>;
-                        bindings = <&kp RPAR &kp RPAR>;
-                };
         };
 
-        behaviors {
-                opn_br_ht: open_bracket_hold_tap {
-                        compatible = "zmk,behavior-hold-tap";
-                        #binding-cells = <2>;
-                        flavor = "tap-preferred";          // or balanced/hold-preferred
-                        tapping-term-ms = <200>;
-                        quick-tap-ms = <0>;
-                        bindings = <&kp>, <&opn_parens>;
-                        // hold branch = &kp (expects 1 param: the hold keycode)
-                        // tap branch  = &opn_parens (expects 0 params, will get a dummy 0)
-                };
-                cls_br_ht: close_bracket_hold_tap {
-                        compatible = "zmk,behavior-hold-tap";
-                        #binding-cells = <2>;
-                        flavor = "tap-preferred";          // or balanced/hold-preferred
-                        tapping-term-ms = <200>;
-                        quick-tap-ms = <0>;
-                        bindings = <&kp>, <&cls_parens>;
-                        // hold branch = &kp (expects 1 param: the hold keycode)
-                        // tap branch  = &cls_parens (expects 0 params, will get a dummy 0)
-                };
-
-                opn_brckts: opn_brckts {
-                        compatible = "zmk,behavior-tap-dance";
-                        #binding-cells = <0>;
-                        tapping-term-ms = <200>;
-                        bindings = <&mt LBRC LPAR>,  <&opn_br_ht LBKT 0>;
-                };
-
-                cls_brckts: cls_brckts {
-                        compatible = "zmk,behavior-tap-dance";
-                        #binding-cells = <0>;
-                        tapping-term-ms = <200>;
-                        bindings = <&mt RBRC RPAR>,  <&cls_br_ht LBKT 0>;
-                };
-        };
+        
 
         keymap {
                 compatible = "zmk,keymap";
@@ -270,53 +195,6 @@
 // ╰─────────────────┴────────────────┼─────────────┼─────────────┼─────────────┤   ├─────────────┼─────────────┼─────────────┼─────────────┴─────────────╯
                                           ______        ______        ______            ______        ______       &mo NAV
 //                                    ╰─────────────┴─────────────┴─────────────╯   ╰─────────────┴─────────────┴─────────────╯
-                        >;
-                };
-
-                num_layer {
-                        bindings = <
-// ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮   ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮
-        ______     &opn_brckts   &cls_brckts      ______        &arrw         &mt BSLH PIPE    &kp N7         &kp N8        &kp N9      &kp GRAVE   
-// ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤   ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
-//                         Sticky Modifiers
-      &sk LCTRL      &sk LALT      &sk LCMD     &sk LSHFT       ______        &mt MINUS PLUS   &kp N4         &kp N5        &kp N6      &kp EQUAL
-// ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤   ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
-//                                             Del Line
-       ______     &sv_exit_nano     ______    &kp LG(LS(K))     ______        &mt FSLH STAR    &kp N1         &kp N2        &kp N3      &kp EQUAL
-// ╰─────────────┴─────────────┼─────────────┼─────────────┼─────────────┤   ├─────────────┼─────────────┼─────────────┼─────────────┴─────────────╯
-                                    ______        ______        ______           ______       &kp PERIOD    &kp N0
-//                             ╰─────────────┴─────────────┴─────────────╯   ╰─────────────┴─────────────┴─────────────╯
-                        >;
-                };
-
-                nav_layer {
-                        bindings = <
-// ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮   ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮
-        TAB        &caps_word       ______        ______        ______           ______       &kp PG_UP      &kp UP       &kp PG_DN      ______   
-// ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤   ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
-//                         Sticky Modifiers
-      &sk LCTRL      &sk LALT      &sk LCMD     &sk LSHFT       ______          &mt HOME      &kp LEFT      &kp DOWN      &kp RIGHT      &kp END
-// ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤   ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
-       ______         ______        ______        ______        ______           ______     &msc SCRL_LEFT   ______    &msc SCRL_RIGHT   ______
-// ╰─────────────┴─────────────┼─────────────┼─────────────┼─────────────┤   ├─────────────┼─────────────┼─────────────┼─────────────┴─────────────╯
-                                  &mo SHRTCT      ______        ______           ______        ______        ______
-//                             ╰─────────────┴─────────────┴─────────────╯   ╰─────────────┴─────────────┴─────────────╯
-                        >;
-                };
-
-                fun_layer {
-                        bindings = <
-// ╭────────────────────────────────┬──────────────────────────────┬───────────────────────────────┬───────────────────────────────┬──────────────────────────────╮   ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮
-//                                                      Bluetooth Controls: Select profile on Tap, Disconnect on Hold
-    &mt &bt BT_DISC 0 &bt BT_SEL 0   &mt &bt BT_DISC 1 &bt BT_SEL 1  &mt &bt BT_DISC 2 &bt BT_SEL 2  &mt &bt BT_DISC 3 &bt BT_SEL 3 &mt &bt BT_DISC 4 &bt BT_SEL 4         &kp F12       &kp F7         &kp F8        &kp F9       ______   
-// ├────────────────────────────────┼──────────────────────────────┼───────────────────────────────┼───────────────────────────────┼──────────────────────────────┤   ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
-//                         Sticky Modifiers                                                                                          Cycle to next BT Profile
-               &sk LCTRL                      &sk LALT                          &sk LCMD                     &sk LSHFT                        &bt BT_NXT                      &kp F11       &kp F4         &kp F5        &kp F6       ______
-// ├────────────────────────────────┼──────────────────────────────┼───────────────────────────────┼───────────────────────────────┼──────────────────────────────┤   ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
-                &bt BT_CLR 0                  &bt BT_CLR 1                    &bt BT_CLR 2                    &bt BT_CLR 3                    &bt BT_CLR 4                      &kp F10       &kp F1         &kp F2        &kp F3       ______
-// ╰────────────────────────────────┼──────────────────────────────┼───────────────────────────────┼───────────────────────────────┼──────────────────────────────┤   ├─────────────┼─────────────┼─────────────┼─────────────┴─────────────╯
-                                                                                                                            ______        ______        ______            ______        ______        ______
-//                                                                                                                      ╰─────────────┴─────────────┴─────────────╯   ╰─────────────┴─────────────┴─────────────╯
                         >;
                 };
         };
