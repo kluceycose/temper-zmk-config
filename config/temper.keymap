@@ -178,10 +178,10 @@
 
         Shortcuts {
             bindings = <
-  &mt LS(TAB) TAB  &kp LS(GRAVE)  &kp GRAVE     &trans    &trans    &trans  &trans     &trans    &trans    &trans
-  &kp L            &kp LS(T)      &kp LS(LBKT)  &kp LBKT  &kp G     &trans  &kp RSHFT  &kp RCMD  &kp RALT  &kp RCTRL
-  &kp Z            &kp X          &kp C         &kp DEL   &kp V     &trans  &trans     &trans    &trans    &trans
-                                  &trans        &trans    &trans    &trans  &trans     &trans
+  &mt LS(TAB) TAB  &kp LS(GRAVE)  &kp GRAVE     &trans     &trans    &trans  &trans     &trans    &trans    &trans
+  &kp L            &kp LS(T)      &kp LS(LBKT)  &kp LBKT   &kp G     &trans  &kp RSHFT  &kp RCMD  &kp RALT  &kp RCTRL
+  &kp Z            &kp X          &kp C         &kp LS(K)  &kp V     &trans  &trans     &trans    &trans    &trans
+                                  &trans        &trans     &trans    &trans  &trans     &trans
             >;
         };
 
