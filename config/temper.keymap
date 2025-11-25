@@ -312,10 +312,10 @@
 
         Sym {
             bindings = <
-  &trans  &trans  &kp LBRC  &trans    &trans    &trans  &trans         &trans            &trans    &trans
-  &trans  &trans  &kp LPAR  &kp RPAR  &trans    &trans  &kp RSHIFT     &kp LCMD          &kp RALT  &kp RCTRL
-  &trans  &trans  &trans    &trans    &trans    &trans  &kp LESS_THAN  &kp GREATER_THAN  &trans    &trans
-                  &trans    &trans    &trans    &trans  &trans         &trans
+  &trans    &trans     &kp LBRC  &kp RIGHT_BRACE  &kp RBRC    &trans  &trans         &trans            &trans    &trans
+  &kp EXCL  &kp EQUAL  &kp LPAR  &kp LPAR         &kp RPAR    &trans  &kp RSHIFT     &kp LCMD          &kp RALT  &kp RCTRL
+  &trans    &trans     &kp LBKT  &kp RBKT         &kp RBKT    &trans  &kp LESS_THAN  &kp GREATER_THAN  &trans    &trans
+                       &trans    &trans           &trans      &trans  &trans         &trans
             >;
         };
 
