@@ -18,7 +18,7 @@
 
 / {
     combos {
-        compatible = "zkm,combos";
+        compatible = "zmk,combos";
 
         // DEFAULT LAYER COMBOS
         // Left Side Combos
