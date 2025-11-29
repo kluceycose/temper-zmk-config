@@ -134,13 +134,6 @@
         };
 
         // Keypress Combos
-
-        combo_semicolon {
-            timeout-ms = <50>;
-            key-positions = <18 19>;
-            bindings = <&kp SEMICOLON>;
-            layers = <0>;
-        };
     };
 
     macros {
@@ -252,6 +245,8 @@
   &kp Z  &kp X  &kp C       &kp D           &kp V          &kp K      &kp H      &kp COMMA  &kp PERIOD  &kp SLASH
                 &lm 1 LCMD  &mt LSHFT BSPC  &lt NUM RET    &kp MINUS  &kp SPACE  &mo NAV
             >;
+
+            label = "Base";
         };
 
         Shortcuts {
@@ -261,6 +256,8 @@
   &kp Z            &kp X          &kp C         &kp LS(K)     &kp V     &trans  &trans     &trans    &trans    &trans
                                   &trans        &trans        &trans    &trans  &trans     &trans
             >;
+
+            label = "Shrtcts";
         };
 
         SymNum {
@@ -272,13 +269,15 @@
             >;
         };
 
-        Nav {
+        Edit {
             bindings = <
-  &kp TAB    &caps_word  &trans    &trans     &trans    &trans    &kp PG_UP       &kp UP    &kp PG_DN        &trans
-  &sk LCTRL  &sk LALT    &sk LCMD  &sk LSHFT  &trans    &kp HOME  &kp LEFT        &kp DOWN  &kp RIGHT        &kp END
-  &trans     &trans      &trans    &trans     &trans    &trans    &msc SCRL_LEFT  &trans    &msc SCRL_RIGHT  &trans
-                         &trans    &trans     &trans    &trans    &trans          &trans
+  &kp TAB    &caps_word  &trans    &kp LS(LCTRL)  &trans    &trans    &kp PG_UP       &kp UP    &kp PG_DN        &trans
+  &kp LCTRL  &kp LALT    &kp LCMD  &kp LSHFT      &trans    &kp HOME  &kp LEFT        &kp DOWN  &kp RIGHT        &kp END
+  &trans     &trans      &trans    &trans         &trans    &trans    &msc SCRL_LEFT  &trans    &msc SCRL_RIGHT  &trans
+                         &trans    &kp DEL        &trans    &trans    &trans          &trans
             >;
+
+            label = "Edit";
         };
 
         Fun {
