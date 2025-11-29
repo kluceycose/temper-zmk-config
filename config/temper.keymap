@@ -233,6 +233,15 @@
 
             tapping-term-ms = <200>;
         };
+
+        bckspc_del: bckspc_del {
+            compatible = "zmk,behavior-mod-morph";
+            label = "BCKSPC_DEL";
+            bindings = <&kp BACKSPACE>, <&kp DEL>;
+
+            #binding-cells = <0>;
+            mods = <(MOD_LSFT)>;
+        };
     };
 
     keymap {
@@ -274,7 +283,7 @@
   &kp TAB    &caps_word  &trans    &kp LS(LCTRL)  &trans    &trans    &kp PG_UP       &kp UP    &kp PG_DN        &trans
   &kp LCTRL  &kp LALT    &kp LCMD  &kp LSHFT      &trans    &kp HOME  &kp LEFT        &kp DOWN  &kp RIGHT        &kp END
   &trans     &trans      &trans    &trans         &trans    &trans    &msc SCRL_LEFT  &trans    &msc SCRL_RIGHT  &trans
-                         &trans    &kp DEL        &trans    &trans    &trans          &trans
+                         &trans    &bckspc_del    &trans    &trans    &trans          &trans
             >;
 
             label = "Edit";
