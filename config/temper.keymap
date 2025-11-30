@@ -133,6 +133,11 @@
             layers = <0>;
         };
 
+        caps_word {
+            bindings = <&caps_word>;
+            key-positions = <1 2>;
+        };
+
         // Keypress Combos
     };
 
@@ -193,6 +198,22 @@
             wait-ms = <40>;
             tap-ms = <40>;
         };
+
+        fold_all: fold_all {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&kp LG(K) &kp LG(N0)>;
+            label = "FOLD_ALL";
+            wait-ms = <40>;
+            tap-ms = <40>;
+        };
+
+        unfold_all: unfold_all {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&kp LG(K) &kp LG(J)>;
+            label = "UNFOLD_ALL";
+        };
     };
 
     behaviors {
@@ -242,6 +263,15 @@
             #binding-cells = <0>;
             mods = <(MOD_LSFT)>;
         };
+
+        fold_unfold_all: fold_unfold_all {
+            compatible = "zmk,behavior-tap-dance";
+            label = "FOLD_UNFOLD_ALL";
+            #binding-cells = <0>;
+            bindings = <&fold_all>, <&unfold_all>;
+
+            tapping-term-ms = <200>;
+        };
     };
 
     keymap {
@@ -280,10 +310,10 @@
 
         Edit {
             bindings = <
-  &kp TAB    &caps_word  &trans    &kp LS(LCTRL)  &trans    &trans    &kp PG_UP       &kp UP    &kp PG_DN        &trans
-  &kp LCTRL  &kp LALT    &kp LCMD  &kp LSHFT      &trans    &kp HOME  &kp LEFT        &kp DOWN  &kp RIGHT        &kp END
-  &trans     &trans      &trans    &trans         &trans    &trans    &msc SCRL_LEFT  &trans    &msc SCRL_RIGHT  &trans
-                         &trans    &bckspc_del    &trans    &trans    &trans          &trans
+  &kp TAB    &trans     &kp LS(LCTRL)  &kp F2         &fold_unfold_all                 &trans  &kp PG_UP       &kp UP    &kp PG_DN        &trans
+  &kp LCTRL  &kp LALT   &kp LSHIFT     &kp LCMD       &mt LG(LA(RBKT)) LG(LA(LBKT))    &kp F3  &kp LEFT        &kp DOWN  &kp RIGHT        &kp F12
+  &kp LG(Z)  &kp LG(X)  &kp LG(C)      &kp LG(LS(K))  &kp LG(V)                        &kp F7  &msc SCRL_LEFT  &trans    &msc SCRL_RIGHT  &trans
+                        &trans         &kp DEL        &trans                           &trans  &trans          &trans
             >;
 
             label = "Edit";
