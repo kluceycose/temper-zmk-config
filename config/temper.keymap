@@ -288,7 +288,7 @@
             label = "Base";
         };
 
-        Shortcuts {
+        Apps_Nav {
             bindings = <
   &mt LS(TAB) TAB  &kp LS(GRAVE)  &kp GRAVE     &trans        &trans    &trans  &trans     &trans    &trans    &trans
   &kp L            &kp LS(T)      &kp LS(LBKT)  &kp LS(RBKT)  &trans    &trans  &kp RSHFT  &kp RCMD  &kp RALT  &kp RCTRL
@@ -296,15 +296,15 @@
                                   &trans        &trans        &trans    &trans  &trans     &trans
             >;
 
-            label = "Shrtcts";
+            label = "Apps_Nav";
         };
 
-        SymNum {
+        Num {
             bindings = <
-  &trans     &open_bckts    &cls_bckts  &trans     &trans       &mt BACKSLASH PIPE  &kp N7      &kp N8  &kp N9  &kp GRAVE
-  &kp LCTRL  &kp LALT       &kp LCMD    &kp LSHFT  &fat_arrw    &mt MINUS PLUS      &kp N4      &kp N5  &kp N6  &kp SEMICOLON
-  &trans     &sv_exit_nano  &trans      &kp DEL    &trans       &kp EQUAL           &kp N1      &kp N2  &kp N3  &trans
-                            &trans      &trans     &trans       &trans              &kp PERIOD  &kp N0
+  &trans     &trans    &trans    &trans       &trans    &mt FSLH STAR   &kp N7   &kp N8  &kp N9  &mt RPAR LPAR
+  &kp LCTRL  &kp LALT  &kp LCMD  &kp LSHFT    &trans    &mt MINUS PLUS  &kp N4   &kp N5  &kp N6  &kp N0
+  &trans     &trans    &trans    &trans       &trans    &kp EQUAL       &kp N1   &kp N2  &kp N3  &kp DOT
+                       &trans    &bckspc_del  &trans    &trans          &kp DOT  &kp N0
             >;
         };
 
