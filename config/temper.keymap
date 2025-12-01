@@ -324,10 +324,10 @@
 
         Base {
             bindings = <
-  &kp Q  &kp W  &kp F       &kp P           &kp B          &kp J      &kp L      &kp U        &kp Y       &kp APOS
-  &kp A  &kp R  &kp S       &kp T           &kp G          &kp M      &kp N      &kp E        &kp I       &kp O
-  &kp Z  &kp X  &kp C       &kp D           &kp V          &kp K      &kp H      &comma_semi  &dot_colon  &qstn_exclm
-                &lm 1 LCMD  &mt LSHFT BSPC  &lt NUM RET    &kp MINUS  &kp SPACE  &mo NAV
+  &kp Q  &kp W  &kp F       &kp P           &kp B        &kp J        &kp L      &kp U        &kp Y       &kp APOS
+  &kp A  &kp R  &kp S       &kp T           &kp G        &kp M        &kp N      &kp E        &kp I       &kp O
+  &kp Z  &kp X  &kp C       &kp D           &kp V        &kp K        &kp H      &comma_semi  &dot_colon  &qstn_exclm
+                &lm 1 LCMD  &mt LSHFT BSPC  &lt 5 RET    &lt 2 MINUS  &kp SPACE  &mo NAV
             >;
 
             label = "Base";
