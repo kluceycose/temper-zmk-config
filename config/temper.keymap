@@ -272,6 +272,51 @@
 
             tapping-term-ms = <200>;
         };
+
+        fslh_bslh: fslh_bslh {
+            compatible = "zmk,behavior-mod-morph";
+            label = "FSLH_BSLH";
+            bindings = <&kp FSLH>, <&kp BSLH>;
+
+            #binding-cells = <0>;
+            mods = <(MOD_LSFT|MOD_RSFT)>;
+        };
+
+        amps_pipe: amps_pipe {
+            compatible = "zmk,behavior-mod-morph";
+            label = "AMPS_PIPE";
+            bindings = <&kp AMPS>, <&kp PIPE>;
+
+            #binding-cells = <0>;
+            mods = <(MOD_LSFT|MOD_RSFT)>;
+        };
+
+        qstn_exclm: qstn_exclm {
+            compatible = "zmk,behavior-mod-morph";
+            label = "QSTN_EXCLM";
+            bindings = <&kp QUESTION>, <&kp EXCL>;
+
+            #binding-cells = <0>;
+            mods = <(MOD_LSFT|MOD_RSFT)>;
+        };
+
+        comma_semi: comma_semi {
+            compatible = "zmk,behavior-mod-morph";
+            label = "COMMA_SEMI";
+            bindings = <&kp COMMA>, <&kp SEMI>;
+
+            #binding-cells = <0>;
+            mods = <(MOD_LSFT|MOD_RSFT)>;
+        };
+
+        dot_colon: dot_colon {
+            compatible = "zmk,behavior-mod-morph";
+            label = "DOT_COLON";
+            bindings = <&kp DOT>, <&kp COLON>;
+
+            #binding-cells = <0>;
+            mods = <(MOD_LSFT|MOD_RSFT)>;
+        };
     };
 
     keymap {
@@ -279,9 +324,9 @@
 
         Base {
             bindings = <
-  &kp Q  &kp W  &kp F       &kp P           &kp B          &kp J      &kp L      &kp U      &kp Y       &kp APOS
-  &kp A  &kp R  &kp S       &kp T           &kp G          &kp M      &kp N      &kp E      &kp I       &kp O
-  &kp Z  &kp X  &kp C       &kp D           &kp V          &kp K      &kp H      &kp COMMA  &kp PERIOD  &kp SLASH
+  &kp Q  &kp W  &kp F       &kp P           &kp B          &kp J      &kp L      &kp U        &kp Y       &kp APOS
+  &kp A  &kp R  &kp S       &kp T           &kp G          &kp M      &kp N      &kp E        &kp I       &kp O
+  &kp Z  &kp X  &kp C       &kp D           &kp V          &kp K      &kp H      &comma_semi  &dot_colon  &qstn_exclm
                 &lm 1 LCMD  &mt LSHFT BSPC  &lt NUM RET    &kp MINUS  &kp SPACE  &mo NAV
             >;
 
@@ -326,6 +371,17 @@
   &trans        &trans        &trans        &trans        &trans          &kp F10  &kp F1  &kp F2  &kp F3  &trans
                               &trans        &trans        &trans          &trans   &trans  &trans
             >;
+        };
+
+        Sym {
+            bindings = <
+  &trans  &trans  &trans  &trans  &trans    &trans  &trans  &trans  &trans  &kp GRAVE
+  &trans  &trans  &trans  &trans  &trans    &trans  &trans  &trans  &trans  &kp SEMI
+  &trans  &trans  &trans  &trans  &trans    &trans  &trans  &trans  &trans  &fslh_bslh
+                  &trans  &trans  &trans    &trans  &trans  &trans
+            >;
+
+            label = "Sym";
         };
     };
 
