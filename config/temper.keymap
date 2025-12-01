@@ -294,7 +294,7 @@
         qstn_exclm: qstn_exclm {
             compatible = "zmk,behavior-mod-morph";
             label = "QSTN_EXCLM";
-            bindings = <&kp QUESTION>, <&kp EXCL>;
+            bindings = <&kp EXCL>, <&kp QUESTION>;
 
             #binding-cells = <0>;
             mods = <(MOD_LSFT|MOD_RSFT)>;
@@ -375,10 +375,10 @@
 
         Sym {
             bindings = <
-  &trans  &trans  &trans  &trans  &trans    &trans  &trans  &trans  &trans  &kp GRAVE
-  &trans  &trans  &trans  &trans  &trans    &trans  &trans  &trans  &trans  &kp SEMI
-  &trans  &trans  &trans  &trans  &trans    &trans  &trans  &trans  &trans  &fslh_bslh
-                  &trans  &trans  &trans    &trans  &trans  &trans
+  &kp CARET  &kp DOLLAR   &kp LEFT_BRACE  &kp RIGHT_BRACE  &kp LA(RBKT)    &kp LA(LS(RBKT))  &kp MINUS  &kp LESS_THAN  &kp GREATER_THAN  &kp GRAVE
+  &kp AT     &kp EXCL     &kp LPAR        &kp RPAR         &kp LA(LBKT)    &kp LA(LS(LBKT))  &kp EQUAL  &fslh_bslh     &kp PLUS          &kp SEMI
+  &trans     &kp PERCENT  &kp HASH        &amps_pipe       &trans          &trans            &kp TILDE  &comma_semi    &dot_colon        &kp EXCL
+                          &trans          &trans           &trans          &trans            &trans     &trans
             >;
 
             label = "Sym";
