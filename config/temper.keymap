@@ -434,7 +434,7 @@
         compatible = "zmk,conditional-layers";
 
         Fun {
-            if-layers = <3 1>;
+            if-layers = <2 5>;
             then-layer = <4>;
         };
     };
