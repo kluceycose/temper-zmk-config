@@ -372,7 +372,7 @@
   &kp Q  &kp W  &kp F       &kp P           &kp B        &kp J        &kp L      &kp U        &kp Y       &kp APOS
   &kp A  &kp R  &kp S       &kp T           &kp G        &kp M        &kp N      &kp E        &kp I       &kp O
   &kp Z  &kp X  &kp C       &kp D           &kp V        &kp K        &kp H      &comma_semi  &dot_colon  &qstn_exclm
-                &lm 1 LCMD  &mt LSHFT BSPC  &lt 5 RET    &lt 2 MINUS  &kp SPACE  &mo NAV
+                &lm 1 LCMD  &mt LSHFT BSPC  &lt 3 RET    &lt 4 MINUS  &kp SPACE  &mo 2
             >;
 
             label = "Base";
@@ -389,15 +389,6 @@
             label = "Apps_Nav";
         };
 
-        Num {
-            bindings = <
-  &trans     &trans    &trans    &trans       &trans    &mt FSLH STAR   &kp N7   &kp N8  &kp N9  &mt RPAR LPAR
-  &kp LCTRL  &kp LALT  &kp LCMD  &kp LSHFT    &trans    &mt MINUS PLUS  &kp N4   &kp N5  &kp N6  &kp N0
-  &trans     &trans    &trans    &trans       &trans    &kp EQUAL       &kp N1   &kp N2  &kp N3  &kp DOT
-                       &trans    &bckspc_del  &trans    &trans          &kp DOT  &kp N0
-            >;
-        };
-
         Edit {
             bindings = <
   &kp TAB    &trans     &kp LS(LCTRL)  &kp F2         &fold_unfold_all                 &trans  &kp PG_UP       &kp UP    &kp PG_DN        &trans
@@ -407,15 +398,6 @@
             >;
 
             label = "Edit";
-        };
-
-        Fun {
-            bindings = <
-  &bt BT_SEL 0  &bt BT_SEL 1  &bt BT_SEL 2  &bt BT_SEL 3  &bt BT_SEL 4    &kp F12  &kp F7  &kp F8  &kp F9  &trans
-  &kp LCTRL     &kp LALT      &kp LCMD      &kp LSHFT     &bt BT_NXT      &kp F11  &kp F4  &kp F5  &kp F6  &trans
-  &trans        &trans        &trans        &trans        &trans          &kp F10  &kp F1  &kp F2  &kp F3  &trans
-                              &trans        &trans        &trans          &trans   &trans  &trans
-            >;
         };
 
         Sym {
@@ -428,14 +410,32 @@
 
             label = "Sym";
         };
+
+        Num {
+            bindings = <
+  &trans     &trans    &trans    &trans       &trans    &mt FSLH STAR   &kp N7   &kp N8  &kp N9  &mt RPAR LPAR
+  &kp LCTRL  &kp LALT  &kp LCMD  &kp LSHFT    &trans    &mt MINUS PLUS  &kp N4   &kp N5  &kp N6  &kp N0
+  &trans     &trans    &trans    &trans       &trans    &kp EQUAL       &kp N1   &kp N2  &kp N3  &kp DOT
+                       &trans    &bckspc_del  &trans    &trans          &kp DOT  &kp N0
+            >;
+        };
+
+        Fun {
+            bindings = <
+  &bt BT_SEL 0  &bt BT_SEL 1  &bt BT_SEL 2  &bt BT_SEL 3  &bt BT_SEL 4    &kp F12  &kp F7  &kp F8  &kp F9  &trans
+  &kp LCTRL     &kp LALT      &kp LCMD      &kp LSHFT     &bt BT_NXT      &kp F11  &kp F4  &kp F5  &kp F6  &trans
+  &trans        &trans        &trans        &trans        &trans          &kp F10  &kp F1  &kp F2  &kp F3  &trans
+                              &trans        &trans        &trans          &trans   &trans  &trans
+            >;
+        };
     };
 
     conditional_layers {
         compatible = "zmk,conditional-layers";
 
         Fun {
-            if-layers = <2 5>;
-            then-layer = <4>;
+            if-layers = <4 3>;
+            then-layer = <5>;
         };
     };
 };
