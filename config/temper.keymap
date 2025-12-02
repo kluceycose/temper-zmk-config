@@ -422,7 +422,7 @@
             bindings = <
   &kp CARET      &kp DOLLAR      &kp LEFT_BRACE  &kp RIGHT_BRACE  &kp LA(RBKT)    &kp LA(LS(RBKT))  &kp MINUS          &kp LESS_THAN        &kp GREATER_THAN  &kp GRAVE
   &hml LCTRL AT  &hml LALT EXCL  &hml LCMD LPAR  &hml LSHFT RPAR  &kp LA(LBKT)    &kp LA(LS(LBKT))  &hmr RSHIFT EQUAL  &hmr_slashes RCMD 0  &hmr RALT PLUS    &hmr RCTRL SEMI
-  &trans         &kp PERCENT     &kp HASH        &amps_pipe       &trans          &trans            &kp TILDE          &comma_semi          &dot_colon        &kp EXCL
+  &trans         &kp HASH        &kp LBKT        &kp RBKT         &amps_pipe      &kp PERCENT       &kp TILDE          &trans               &trans            &trans
                                  &trans          &trans           &trans          &trans            &trans             &trans
             >;
 
