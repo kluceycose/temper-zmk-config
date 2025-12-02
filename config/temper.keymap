@@ -366,6 +366,8 @@
   &trans     &trans    &trans    &trans       &trans    &kp EQUAL       &kp N1   &kp N2  &kp N3  &kp DOT
                        &trans    &bckspc_del  &trans    &trans          &kp DOT  &kp N0
             >;
+
+            label = "Num";
         };
 
         Fun {
@@ -375,6 +377,8 @@
   &trans        &trans        &trans        &trans        &trans          &kp F10  &kp F1  &kp F2  &kp F3  &trans
                               &trans        &trans        &trans          &trans   &trans  &trans
             >;
+
+            label = "Fun";
         };
     };
 
