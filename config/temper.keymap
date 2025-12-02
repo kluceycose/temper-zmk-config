@@ -15,8 +15,6 @@
 #define NAV 3
 #define FUN 4
 
-&sk { release-after-ms = <2000>; };
-
 / {
     combos {
         compatible = "zmk,combos";
@@ -163,33 +161,6 @@
                 <&mo MACRO_PLACEHOLDER>;
         };
 
-        dbl_opn_paren: dbl_opn_paren {
-            compatible = "zmk,behavior-macro";
-            #binding-cells = <0>;
-            bindings = <&kp LEFT_PARENTHESIS &kp LEFT_PARENTHESIS>;
-            label = "DBL_OPN_PAREN";
-            wait-ms = <40>;
-            tap-ms = <40>;
-        };
-
-        dbl_cls_paren: dbl_cls_paren {
-            compatible = "zmk,behavior-macro";
-            #binding-cells = <0>;
-            bindings = <&kp RIGHT_PARENTHESIS &kp RIGHT_PARENTHESIS>;
-            label = "DBL_CLS_PAREN";
-            wait-ms = <40>;
-            tap-ms = <40>;
-        };
-
-        fat_arrw: fat_arrw {
-            compatible = "zmk,behavior-macro";
-            #binding-cells = <0>;
-            bindings = <&kp EQUAL &kp GREATER_THAN>;
-            label = "FAT_ARRW";
-            wait-ms = <40>;
-            tap-ms = <40>;
-        };
-
         sv_exit_nano: sv_exit_nano {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
@@ -217,44 +188,6 @@
     };
 
     behaviors {
-        open_bckts: open_bckts {
-            compatible = "zmk,behavior-tap-dance";
-            label = "OPEN_BCKTS";
-            #binding-cells = <0>;
-            bindings =
-                <&mt LEFT_BRACE LEFT_PARENTHESIS>,
-                <&opn_dbl_tap LEFT_BRACKET 0>;
-
-            tapping-term-ms = <200>;
-        };
-
-        opn_dbl_tap: opn_dbl_tap {
-            compatible = "zmk,behavior-hold-tap";
-            label = "OPN_DBL_TAP";
-            bindings = <&kp>, <&dbl_opn_paren>;
-
-            #binding-cells = <2>;
-            tapping-term-ms = <200>;
-        };
-
-        cls_dbl_tap: cls_dbl_tap {
-            compatible = "zmk,behavior-hold-tap";
-            label = "CLS_DBL_TAP";
-            bindings = <&kp>, <&dbl_cls_paren>;
-
-            #binding-cells = <2>;
-            tapping-term-ms = <200>;
-        };
-
-        cls_bckts: cls_bckts {
-            compatible = "zmk,behavior-tap-dance";
-            label = "CLS_BCKTS";
-            #binding-cells = <0>;
-            bindings = <&mt RIGHT_BRACE RIGHT_PARENTHESIS>, <&dbl_cls_paren>;
-
-            tapping-term-ms = <200>;
-        };
-
         bckspc_del: bckspc_del {
             compatible = "zmk,behavior-mod-morph";
             label = "BCKSPC_DEL";
@@ -380,10 +313,10 @@
 
         Apps_Nav {
             bindings = <
-  &mt LS(TAB) TAB  &kp LS(GRAVE)  &kp GRAVE     &trans        &trans    &trans  &trans     &trans    &trans    &trans
-  &kp L            &kp LS(T)      &kp LS(LBKT)  &kp LS(RBKT)  &trans    &trans  &kp RSHFT  &kp RCMD  &kp RALT  &kp RCTRL
-  &kp Z            &kp X          &kp C         &kp LS(K)     &kp V     &trans  &trans     &trans    &trans    &trans
-                                  &trans        &trans        &trans    &trans  &trans     &trans
+  &mt LS(TAB) TAB  &kp LS(GRAVE)  &kp GRAVE     &trans        &trans           &trans  &trans     &trans    &trans    &trans
+  &kp L            &kp LS(T)      &kp LS(LBKT)  &kp LS(RBKT)  &sv_exit_nano    &trans  &kp RSHFT  &kp RCMD  &kp RALT  &kp RCTRL
+  &kp Z            &kp X          &kp C         &kp LS(K)     &kp V            &trans  &trans     &trans    &trans    &trans
+                                  &trans        &trans        &trans           &trans  &trans     &trans
             >;
 
             label = "Apps_Nav";
