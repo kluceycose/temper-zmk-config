@@ -128,7 +128,7 @@
 
         combo_right_cmd_alt_ctrl {
             timeout-ms = <50>;
-            key-positions = <26 27 28 29>;
+            key-positions = <26 27 28 29 26 27 28 29>;
             bindings = <&kp RG(RA(RCTRL))>;
             layers = <0>;
         };
@@ -145,7 +145,7 @@
 
         dn_arrw {
             bindings = <&kp DOWN>;
-            key-positions = <26 27 28>;
+            key-positions = <18 17 16>;
         };
 
         // Keypress Combos
