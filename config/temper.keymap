@@ -15,6 +15,8 @@
 #define NAV 3
 #define FUN 4
 
+&lt { flavor = "hold-preferred"; };
+
 / {
     combos {
         compatible = "zmk,combos";
@@ -136,6 +138,16 @@
             key-positions = <1 2>;
         };
 
+        up_arrw {
+            bindings = <&kp UP>;
+            key-positions = <6 7 8>;
+        };
+
+        dn_arrw {
+            bindings = <&kp DOWN>;
+            key-positions = <26 27 28>;
+        };
+
         // Keypress Combos
     };
 
@@ -188,9 +200,9 @@
     };
 
     behaviors {
-        bckspc_del: bckspc_del {
+        bksp_del: bksp_del {
             compatible = "zmk,behavior-mod-morph";
-            label = "BCKSPC_DEL";
+            label = "BKSP_DEL";
             bindings = <&kp BACKSPACE>, <&kp DEL>;
 
             #binding-cells = <0>;
@@ -342,7 +354,7 @@
   &kp TAB    &trans     &kp LS(LCTRL)  &kp F2         &fold_unfold_all                 &trans  &kp PG_UP       &kp UP    &kp PG_DN        &trans
   &kp LCTRL  &kp LALT   &kp LCMD       &kp LSHFT      &mt LG(LA(RBKT)) LG(LA(LBKT))    &kp F3  &kp LEFT        &kp DOWN  &kp RIGHT        &kp F12
   &kp LG(Z)  &kp LG(X)  &kp LG(C)      &kp LG(LS(K))  &kp LG(V)                        &kp F7  &msc SCRL_LEFT  &trans    &msc SCRL_RIGHT  &trans
-                        &trans         &kp DEL        &trans                           &trans  &trans          &trans
+                        &trans         &bksp_del      &trans                           &trans  &trans          &trans
             >;
 
             label = "Edit";
@@ -352,7 +364,7 @@
             bindings = <
   &trans            &kp DOLLAR            &kp LEFT_BRACE  &kp RIGHT_BRACE  &kp LA(RBKT)    &kp LA(LS(RBKT))  &kp MINUS          &kp LESS_THAN        &kp GREATER_THAN  &kp GRAVE
   &hml LCTRL CARET  &hml_amp_pipe LALT 0  &hml LCMD LPAR  &hml LSHFT RPAR  &kp LA(LBKT)    &kp LA(LS(LBKT))  &hmr RSHIFT EQUAL  &hmr_slashes RCMD 0  &hmr RALT PLUS    &hmr RCTRL SEMI
-  &trans            &kp HASH              &kp LBKT        &kp RBKT         &kp AT          &kp PERCENT       &kp TILDE          &trans               &trans            &trans
+  &trans            &kp HASH              &kp LBKT        &kp RBKT         &kp AT          &kp PERCENT       &kp TILDE          &kp STAR             &trans            &trans
                                           &trans          &trans           &trans          &trans            &trans             &trans
             >;
 
@@ -361,10 +373,10 @@
 
         Num {
             bindings = <
-  &trans     &trans    &trans    &trans       &trans    &mt FSLH STAR   &kp N7   &kp N8  &kp N9  &mt RPAR LPAR
-  &kp LCTRL  &kp LALT  &kp LCMD  &kp LSHFT    &trans    &mt MINUS PLUS  &kp N4   &kp N5  &kp N6  &kp N0
-  &trans     &trans    &trans    &trans       &trans    &kp EQUAL       &kp N1   &kp N2  &kp N3  &kp DOT
-                       &trans    &bckspc_del  &trans    &trans          &kp DOT  &kp N0
+  &trans     &trans    &trans    &tog 4     &trans    &mt FSLH STAR   &kp N7   &kp N8  &kp N9  &mt RPAR LPAR
+  &kp LCTRL  &kp LALT  &kp LCMD  &kp LSHFT  &trans    &mt MINUS PLUS  &kp N4   &kp N5  &kp N6  &kp N0
+  &trans     &trans    &trans    &trans     &trans    &kp EQUAL       &kp N1   &kp N2  &kp N3  &kp DOT
+                       &trans    &bksp_del  &trans    &trans          &kp DOT  &kp N0
             >;
 
             label = "Num";
