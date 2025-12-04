@@ -331,7 +331,7 @@
             bindings = <
   &kp Q  &kp W  &kp F       &kp P           &kp B        &kp J        &kp L      &kp U        &kp Y       &kp APOS
   &kp A  &kp R  &kp S       &kp T           &kp G        &kp M        &kp N      &kp E        &kp I       &kp O
-  &kp Z  &kp X  &kp C       &kp D           &kp V        &kp K        &kp H      &comma_semi  &dot_colon  &qstn_exclm
+  &kp Z  &kp X  &kp C       &kp D           &kp V        &kp K        &kp H      &comma_semi  &dot_colon  &kp FSLH
                 &lm 1 LCMD  &mt LSHFT BSPC  &lt 3 RET    &lt 4 MINUS  &kp SPACE  &mo 2
             >;
 
@@ -340,10 +340,10 @@
 
         Apps_Nav {
             bindings = <
-  &mt LS(TAB) TAB  &kp LS(GRAVE)  &kp GRAVE     &trans        &trans           &trans  &trans     &trans    &trans    &trans
-  &kp L            &kp LS(T)      &kp LS(LBKT)  &kp LS(RBKT)  &sv_exit_nano    &trans  &kp RSHFT  &kp RCMD  &kp RALT  &kp RCTRL
-  &kp Z            &kp X          &kp C         &kp LS(K)     &kp V            &trans  &trans     &trans    &trans    &trans
-                                  &trans        &trans        &trans           &trans  &trans     &trans
+  &mt LS(TAB) TAB  &kp LS(GRAVE)  &kp GRAVE     &trans        &trans           &trans  &trans    &trans     &trans    &trans
+  &kp L            &kp LS(T)      &kp LS(LBKT)  &kp LS(RBKT)  &sv_exit_nano    &trans  &kp RCMD  &kp RSHFT  &kp RALT  &kp RCTRL
+  &kp Z            &kp X          &kp C         &kp LS(K)     &kp V            &trans  &trans    &trans     &trans    &trans
+                                  &trans        &trans        &trans           &trans  &trans    &trans
             >;
 
             label = "Apps_Nav";
@@ -352,7 +352,7 @@
         Edit {
             bindings = <
   &kp TAB    &trans     &kp LS(LCTRL)  &kp F2         &fold_unfold_all                 &trans  &kp PG_UP       &kp UP    &kp PG_DN        &trans
-  &kp LCTRL  &kp LALT   &kp LCMD       &kp LSHFT      &mt LG(LA(RBKT)) LG(LA(LBKT))    &kp F3  &kp LEFT        &kp DOWN  &kp RIGHT        &kp F12
+  &kp LCTRL  &kp LALT   &kp LSHFT      &kp LCMD       &mt LG(LA(RBKT)) LG(LA(LBKT))    &kp F3  &kp LEFT        &kp DOWN  &kp RIGHT        &kp F12
   &kp LG(Z)  &kp LG(X)  &kp LG(C)      &kp LG(LS(K))  &kp LG(V)                        &kp F7  &msc SCRL_LEFT  &trans    &msc SCRL_RIGHT  &trans
                         &trans         &bksp_del      &trans                           &trans  &trans          &trans
             >;
@@ -362,10 +362,10 @@
 
         Sym {
             bindings = <
-  &trans            &kp DOLLAR            &kp LEFT_BRACE  &kp RIGHT_BRACE  &kp LA(RBKT)    &kp LA(LS(RBKT))  &kp MINUS          &kp LESS_THAN        &kp GREATER_THAN  &kp GRAVE
-  &hml LCTRL CARET  &hml_amp_pipe LALT 0  &hml LCMD LPAR  &hml LSHFT RPAR  &kp LA(LBKT)    &kp LA(LS(LBKT))  &hmr RSHIFT EQUAL  &hmr_slashes RCMD 0  &hmr RALT PLUS    &hmr RCTRL SEMI
-  &trans            &kp HASH              &kp LBKT        &kp RBKT         &kp AT          &kp PERCENT       &kp TILDE          &kp STAR             &trans            &trans
-                                          &trans          &trans           &trans          &trans            &trans             &trans
+  &trans           &kp DOLLAR            &kp LEFT_BRACE   &kp RIGHT_BRACE  &kp LA(RBKT)    &kp LA(LS(RBKT))  &kp MINUS        &kp LESS_THAN    &kp GREATER_THAN  &kp GRAVE
+  &hml LCTRL HASH  &hml_amp_pipe LALT 0  &hml LSHFT LPAR  &hml LCMD RPAR   &kp LA(LBKT)    &kp LA(LS(LBKT))  &hmr RCMD EQUAL  &hmr RSHFT STAR  &hmr RALT PLUS    &hmr RCTRL SEMI
+  &trans           &kp CARET             &kp LBKT         &kp RBKT         &kp AT          &kp PERCENT       &kp TILDE        &kp BSLH         &trans            &kp EXCL
+                                         &trans           &trans           &trans          &trans            &trans           &trans
             >;
 
             label = "Sym";
@@ -373,10 +373,10 @@
 
         Num {
             bindings = <
-  &trans     &trans    &trans    &tog 4     &trans    &mt FSLH STAR   &kp N7   &kp N8  &kp N9  &mt RPAR LPAR
-  &kp LCTRL  &kp LALT  &kp LCMD  &kp LSHFT  &trans    &mt MINUS PLUS  &kp N4   &kp N5  &kp N6  &kp N0
-  &trans     &trans    &trans    &trans     &trans    &kp EQUAL       &kp N1   &kp N2  &kp N3  &kp DOT
-                       &trans    &bksp_del  &trans    &trans          &kp DOT  &kp N0
+  &trans     &trans    &trans     &tog 4     &trans    &mt FSLH STAR   &kp N7   &kp N8  &kp N9  &mt RPAR LPAR
+  &kp LCTRL  &kp LALT  &kp LSHFT  &kp LCMD   &trans    &mt MINUS PLUS  &kp N4   &kp N5  &kp N6  &kp N0
+  &trans     &trans    &trans     &trans     &trans    &kp EQUAL       &kp N1   &kp N2  &kp N3  &kp DOT
+                       &trans     &bksp_del  &trans    &trans          &kp DOT  &kp N0
             >;
 
             label = "Num";
@@ -385,7 +385,7 @@
         Fun {
             bindings = <
   &bt BT_SEL 0  &bt BT_SEL 1  &bt BT_SEL 2  &bt BT_SEL 3  &bt BT_SEL 4    &kp F12  &kp F7  &kp F8  &kp F9  &trans
-  &kp LCTRL     &kp LALT      &kp LCMD      &kp LSHFT     &bt BT_NXT      &kp F11  &kp F4  &kp F5  &kp F6  &trans
+  &kp LCTRL     &kp LALT      &kp LSHFT     &kp LCMD      &bt BT_NXT      &kp F11  &kp F4  &kp F5  &kp F6  &trans
   &trans        &trans        &trans        &trans        &trans          &kp F10  &kp F1  &kp F2  &kp F3  &trans
                               &trans        &trans        &trans          &trans   &trans  &trans
             >;
