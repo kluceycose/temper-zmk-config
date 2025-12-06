@@ -218,24 +218,6 @@
             tapping-term-ms = <200>;
         };
 
-        fslh_bslh: fslh_bslh {
-            compatible = "zmk,behavior-mod-morph";
-            label = "FSLH_BSLH";
-            bindings = <&kp FSLH>, <&kp BSLH>;
-
-            #binding-cells = <0>;
-            mods = <(MOD_LSFT|MOD_RSFT)>;
-        };
-
-        amps_pipe: amps_pipe {
-            compatible = "zmk,behavior-mod-morph";
-            label = "AMPS_PIPE";
-            bindings = <&kp AMPS>, <&kp PIPE>;
-
-            #binding-cells = <0>;
-            mods = <(MOD_LSFT|MOD_RSFT)>;
-        };
-
         comma_semi: comma_semi {
             compatible = "zmk,behavior-mod-morph";
             label = "COMMA_SEMI";
