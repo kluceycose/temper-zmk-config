@@ -15,7 +15,7 @@
 #define NAV 3
 #define FUN 4
 
-&sk { release-after-ms = <2000>; };
+&lt { flavor = "hold-preferred"; };
 
 / {
     combos {
@@ -128,19 +128,27 @@
 
         combo_right_cmd_alt_ctrl {
             timeout-ms = <50>;
-            key-positions = <26 27 28 29>;
+            key-positions = <26 27 28 29 26 27 28 29>;
             bindings = <&kp RG(RA(RCTRL))>;
             layers = <0>;
         };
 
-        // Keypress Combos
-
-        combo_semicolon {
-            timeout-ms = <50>;
-            key-positions = <18 19>;
-            bindings = <&kp SEMICOLON>;
-            layers = <0>;
+        caps_word {
+            bindings = <&caps_word>;
+            key-positions = <1 2>;
         };
+
+        up_arrw {
+            bindings = <&kp UP>;
+            key-positions = <6 7 8>;
+        };
+
+        dn_arrw {
+            bindings = <&kp DOWN>;
+            key-positions = <18 17 16>;
+        };
+
+        // Keypress Combos
     };
 
     macros {
@@ -165,33 +173,6 @@
                 <&mo MACRO_PLACEHOLDER>;
         };
 
-        dbl_opn_paren: dbl_opn_paren {
-            compatible = "zmk,behavior-macro";
-            #binding-cells = <0>;
-            bindings = <&kp LEFT_PARENTHESIS &kp LEFT_PARENTHESIS>;
-            label = "DBL_OPN_PAREN";
-            wait-ms = <40>;
-            tap-ms = <40>;
-        };
-
-        dbl_cls_paren: dbl_cls_paren {
-            compatible = "zmk,behavior-macro";
-            #binding-cells = <0>;
-            bindings = <&kp RIGHT_PARENTHESIS &kp RIGHT_PARENTHESIS>;
-            label = "DBL_CLS_PAREN";
-            wait-ms = <40>;
-            tap-ms = <40>;
-        };
-
-        fat_arrw: fat_arrw {
-            compatible = "zmk,behavior-macro";
-            #binding-cells = <0>;
-            bindings = <&kp EQUAL &kp GREATER_THAN>;
-            label = "FAT_ARRW";
-            wait-ms = <40>;
-            tap-ms = <40>;
-        };
-
         sv_exit_nano: sv_exit_nano {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
@@ -200,45 +181,107 @@
             wait-ms = <40>;
             tap-ms = <40>;
         };
+
+        fold_all: fold_all {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&kp LG(K) &kp LG(N0)>;
+            label = "FOLD_ALL";
+            wait-ms = <40>;
+            tap-ms = <40>;
+        };
+
+        unfold_all: unfold_all {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&kp LG(K) &kp LG(J)>;
+            label = "UNFOLD_ALL";
+        };
     };
 
     behaviors {
-        open_bckts: open_bckts {
-            compatible = "zmk,behavior-tap-dance";
-            label = "OPEN_BCKTS";
+        bksp_del: bksp_del {
+            compatible = "zmk,behavior-mod-morph";
+            label = "BKSP_DEL";
+            bindings = <&kp BACKSPACE>, <&kp DEL>;
+
             #binding-cells = <0>;
-            bindings =
-                <&mt LEFT_BRACE LEFT_PARENTHESIS>,
-                <&opn_dbl_tap LEFT_BRACKET 0>;
+            mods = <(MOD_LSFT)>;
+        };
+
+        fold_unfold_all: fold_unfold_all {
+            compatible = "zmk,behavior-tap-dance";
+            label = "FOLD_UNFOLD_ALL";
+            #binding-cells = <0>;
+            bindings = <&fold_all>, <&unfold_all>;
 
             tapping-term-ms = <200>;
         };
 
-        opn_dbl_tap: opn_dbl_tap {
+        fslh_bslh: fslh_bslh {
+            compatible = "zmk,behavior-mod-morph";
+            label = "FSLH_BSLH";
+            bindings = <&kp FSLH>, <&kp BSLH>;
+
+            #binding-cells = <0>;
+            mods = <(MOD_LSFT|MOD_RSFT)>;
+        };
+
+        amps_pipe: amps_pipe {
+            compatible = "zmk,behavior-mod-morph";
+            label = "AMPS_PIPE";
+            bindings = <&kp AMPS>, <&kp PIPE>;
+
+            #binding-cells = <0>;
+            mods = <(MOD_LSFT|MOD_RSFT)>;
+        };
+
+        comma_semi: comma_semi {
+            compatible = "zmk,behavior-mod-morph";
+            label = "COMMA_SEMI";
+            bindings = <&kp COMMA>, <&kp SEMI>;
+
+            #binding-cells = <0>;
+            mods = <(MOD_LSFT|MOD_RSFT)>;
+        };
+
+        dot_colon: dot_colon {
+            compatible = "zmk,behavior-mod-morph";
+            label = "DOT_COLON";
+            bindings = <&kp DOT>, <&kp COLON>;
+
+            #binding-cells = <0>;
+            mods = <(MOD_LSFT|MOD_RSFT)>;
+        };
+
+        hml: hml {
             compatible = "zmk,behavior-hold-tap";
-            label = "OPN_DBL_TAP";
-            bindings = <&kp>, <&dbl_opn_paren>;
+            label = "HML";
+            bindings = <&kp>, <&kp>;
 
             #binding-cells = <2>;
-            tapping-term-ms = <200>;
+            tapping-term-ms = <280>;
+            quick-tap-ms = <175>;
+            require-prior-idle-ms = <150>;
+            flavor = "balanced";
+            hold-trigger-key-positions = <5 8 7 9 18 17 19 29 27 16 6 26 25 15 33 34 35 28>;
+            hold-trigger-on-release;
+            hold-while-undecided;
         };
 
-        cls_dbl_tap: cls_dbl_tap {
+        hmr: hmr {
             compatible = "zmk,behavior-hold-tap";
-            label = "CLS_DBL_TAP";
-            bindings = <&kp>, <&dbl_cls_paren>;
+            label = "HMR";
+            bindings = <&kp>, <&kp>;
 
             #binding-cells = <2>;
-            tapping-term-ms = <200>;
-        };
-
-        cls_bckts: cls_bckts {
-            compatible = "zmk,behavior-tap-dance";
-            label = "CLS_BCKTS";
-            #binding-cells = <0>;
-            bindings = <&mt RIGHT_BRACE RIGHT_PARENTHESIS>, <&dbl_cls_paren>;
-
-            tapping-term-ms = <200>;
+            tapping-term-ms = <280>;
+            quick-tap-ms = <175>;
+            require-prior-idle-ms = <150>;
+            flavor = "balanced";
+            hold-trigger-on-release;
+            hold-while-undecided;
+            hold-trigger-key-positions = <0 1 2 13 4 3 14 11 22 10 12 20 21 24 23 30 31 32>;
         };
     };
 
@@ -247,47 +290,68 @@
 
         Base {
             bindings = <
-  &kp Q  &kp W  &kp F       &kp P           &kp B          &kp J      &kp L      &kp U      &kp Y       &kp APOS
-  &kp A  &kp R  &kp S       &kp T           &kp G          &kp M      &kp N      &kp E      &kp I       &kp O
-  &kp Z  &kp X  &kp C       &kp D           &kp V          &kp K      &kp H      &kp COMMA  &kp PERIOD  &kp SLASH
-                &lm 1 LCMD  &mt LSHFT BSPC  &lt NUM RET    &kp MINUS  &kp SPACE  &mo NAV
+  &kp Q  &kp W  &kp F       &kp P           &kp B        &kp J        &kp L      &kp U        &kp Y       &kp APOS
+  &kp A  &kp R  &kp S       &kp T           &kp G        &kp M        &kp N      &kp E        &kp I       &kp O
+  &kp Z  &kp X  &kp C       &kp D           &kp V        &kp K        &kp H      &comma_semi  &dot_colon  &kp FSLH
+                &lm 1 LCMD  &mt LSHFT BSPC  &lt 3 RET    &lt 4 MINUS  &kp SPACE  &mo 2
             >;
+
+            label = "Base";
         };
 
-        Shortcuts {
+        Apps_Nav {
             bindings = <
-  &mt LS(TAB) TAB  &kp LS(GRAVE)  &kp GRAVE     &trans        &trans    &trans  &trans     &trans    &trans    &trans
-  &kp L            &kp LS(T)      &kp LS(LBKT)  &kp LS(RBKT)  &trans    &trans  &kp RSHFT  &kp RCMD  &kp RALT  &kp RCTRL
-  &kp Z            &kp X          &kp C         &kp LS(K)     &kp V     &trans  &trans     &trans    &trans    &trans
-                                  &trans        &trans        &trans    &trans  &trans     &trans
+  &mt LS(TAB) TAB  &kp LS(GRAVE)  &kp GRAVE     &trans        &trans           &trans  &trans    &trans     &trans    &trans
+  &kp L            &kp LS(T)      &kp LS(LBKT)  &kp LS(RBKT)  &sv_exit_nano    &trans  &kp RCMD  &kp RSHFT  &kp RALT  &kp RCTRL
+  &kp Z            &kp X          &kp C         &kp LS(K)     &kp V            &trans  &trans    &trans     &trans    &trans
+                                  &trans        &trans        &trans           &trans  &trans    &trans
             >;
+
+            label = "Apps_Nav";
         };
 
-        SymNum {
+        Edit {
             bindings = <
-  &trans     &open_bckts    &cls_bckts  &trans     &trans       &mt BACKSLASH PIPE  &kp N7      &kp N8  &kp N9  &kp GRAVE
-  &kp LCTRL  &kp LALT       &kp LCMD    &kp LSHFT  &fat_arrw    &mt MINUS PLUS      &kp N4      &kp N5  &kp N6  &kp SEMICOLON
-  &trans     &sv_exit_nano  &trans      &kp DEL    &trans       &kp EQUAL           &kp N1      &kp N2  &kp N3  &trans
-                            &trans      &trans     &trans       &trans              &kp PERIOD  &kp N0
+  &kp TAB    &trans     &kp LS(LCTRL)  &kp F2         &fold_unfold_all                 &trans  &kp PG_UP       &kp UP    &kp PG_DN        &trans
+  &kp LCTRL  &kp LALT   &kp LSHFT      &kp LCMD       &mt LG(LA(RBKT)) LG(LA(LBKT))    &kp F3  &kp LEFT        &kp DOWN  &kp RIGHT        &kp F12
+  &kp LG(Z)  &kp LG(X)  &kp LG(C)      &kp LG(LS(K))  &kp LG(V)                        &kp F7  &msc SCRL_LEFT  &trans    &msc SCRL_RIGHT  &trans
+                        &trans         &bksp_del      &trans                           &trans  &trans          &trans
             >;
+
+            label = "Edit";
         };
 
-        Nav {
+        Sym {
             bindings = <
-  &kp TAB    &caps_word  &trans    &trans     &trans    &trans    &kp PG_UP       &kp UP    &kp PG_DN        &trans
-  &sk LCTRL  &sk LALT    &sk LCMD  &sk LSHFT  &trans    &kp HOME  &kp LEFT        &kp DOWN  &kp RIGHT        &kp END
-  &trans     &trans      &trans    &trans     &trans    &trans    &msc SCRL_LEFT  &trans    &msc SCRL_RIGHT  &trans
-                         &trans    &trans     &trans    &trans    &trans          &trans
+  &trans           &kp DOLLAR      &kp LEFT_BRACE   &kp RIGHT_BRACE  &kp LA(RBKT)    &kp LA(LS(RBKT))  &kp MINUS        &kp LESS_THAN    &kp GREATER_THAN  &kp GRAVE
+  &hml LCTRL HASH  &hml LALT AMPS  &hml LSHFT LPAR  &hml LCMD RPAR   &kp LA(LBKT)    &kp LA(LS(LBKT))  &hmr RCMD EQUAL  &hmr RSHFT STAR  &hmr RALT PLUS    &hmr RCTRL SEMI
+  &kp CARET        &kp PIPE        &kp LBKT         &kp RBKT         &kp AT          &kp PERCENT       &kp TILDE        &kp BSLH         &trans            &kp EXCL
+                                   &trans           &trans           &trans          &trans            &trans           &trans
             >;
+
+            label = "Sym";
+        };
+
+        Num {
+            bindings = <
+  &trans     &trans    &trans     &tog 4     &trans    &mt FSLH STAR   &kp N7   &kp N8  &kp N9  &mt RPAR LPAR
+  &kp LCTRL  &kp LALT  &kp LSHFT  &kp LCMD   &trans    &mt MINUS PLUS  &kp N4   &kp N5  &kp N6  &kp N0
+  &trans     &trans    &trans     &trans     &trans    &kp EQUAL       &kp N1   &kp N2  &kp N3  &kp DOT
+                       &trans     &bksp_del  &trans    &trans          &kp DOT  &kp N0
+            >;
+
+            label = "Num";
         };
 
         Fun {
             bindings = <
   &bt BT_SEL 0  &bt BT_SEL 1  &bt BT_SEL 2  &bt BT_SEL 3  &bt BT_SEL 4    &kp F12  &kp F7  &kp F8  &kp F9  &trans
-  &kp LCTRL     &kp LALT      &kp LCMD      &kp LSHFT     &bt BT_NXT      &kp F11  &kp F4  &kp F5  &kp F6  &trans
+  &kp LCTRL     &kp LALT      &kp LSHFT     &kp LCMD      &bt BT_NXT      &kp F11  &kp F4  &kp F5  &kp F6  &trans
   &trans        &trans        &trans        &trans        &trans          &kp F10  &kp F1  &kp F2  &kp F3  &trans
                               &trans        &trans        &trans          &trans   &trans  &trans
             >;
+
+            label = "Fun";
         };
     };
 
@@ -295,8 +359,8 @@
         compatible = "zmk,conditional-layers";
 
         Fun {
-            if-layers = <3 1>;
-            then-layer = <4>;
+            if-layers = <4 3>;
+            then-layer = <5>;
         };
     };
 };
